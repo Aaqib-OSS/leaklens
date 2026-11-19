@@ -1,0 +1,24 @@
+name: First-time contributor welcome
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome first-time contributors
+        uses: actions/first-interaction@3c71ce730280171fd1cfb57c00c774f8998586f7 # v1.3.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            Thanks for opening your first issue in LeakLens! We appreciate you taking the time to help improve the project. A maintainer will take a look as soon as possible.
+          pr-message: |
+            Thanks for your first pull request to LeakLens! We appreciate the contribution. The automated checks will run shortly, and a maintainer will review your changes.
